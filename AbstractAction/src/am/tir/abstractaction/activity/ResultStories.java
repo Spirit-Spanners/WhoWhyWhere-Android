@@ -8,6 +8,7 @@ import java.util.List;
 import am.tir.abstractaction.R;
 import am.tir.abstractaction.data.beans.Story;
 import android.app.Activity;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -32,6 +33,7 @@ public class ResultStories extends Activity {
 	public void onNextPressed() {
 		currentIndex = currentIndex == 5 ? 0 : ++currentIndex;
 		storyText.setText(generateStoryText(stories.get(currentIndex)));
+		playPaperSound();
 	}
 
 	public void onPreviousPressed() {
@@ -48,5 +50,10 @@ public class ResultStories extends Activity {
 				answers.get(4), answers.get(5));
 
 		return result;
+	}
+
+	private void playPaperSound() {
+		MediaPlayer mp = MediaPlayer.create(this, R.raw.paper);
+		mp.start();
 	}
 }
