@@ -1,11 +1,12 @@
 package am.tir.abstractaction.activity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import am.tir.abstractaction.R;
-import am.tir.abstractaction.R.anim;
 import am.tir.abstractaction.api.parser.ResponseParser;
 import am.tir.abstractaction.api.service.GameService;
+import am.tir.abstractaction.data.beans.Story;
 import am.tir.abstractaction.utils.Helper;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 
 public class Game extends Activity implements Callback, AnimationListener {
 
@@ -28,6 +30,7 @@ public class Game extends Activity implements Callback, AnimationListener {
 	private static final int ID_REQUEST_GET_ANSWERS_LIST = 2;
 	private static final int ID_REQUEST_ANSWER = 3;
 	private static final int ID_REQUEST_GET_RANDOM_ANSWER = 4;
+	private static final int ID_REQUEST_GET_STORY_LIST = 5;
 
 	private Handler handler = new Handler(this);
 
@@ -42,8 +45,6 @@ public class Game extends Activity implements Callback, AnimationListener {
 	private String[] questions;
 	private String[] questionHints;
 	private List<String> answers;
-
-	private boolean showPaper;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -121,6 +122,9 @@ public class Game extends Activity implements Callback, AnimationListener {
 			case ID_REQUEST_GET_RANDOM_ANSWER:
 				handleGetRandomAnswer(data);
 				break;
+			case ID_REQUEST_GET_STORY_LIST:
+				handleStoriesMSG(data);
+				break;
 			default:
 				break;
 			}
@@ -137,7 +141,7 @@ public class Game extends Activity implements Callback, AnimationListener {
 		String status = data.getString(ResponseParser.RESULT);
 		if (status.equalsIgnoreCase("ok")) {
 			if (currentQuestionId == 6) {
-				
+				GameService.getStoryList(gameId, ID_REQUEST_GET_STORY_LIST, this, handler);
 			} else {
 				hideProgressDialog();
 				if (currentQuestionId == 5) {
@@ -164,11 +168,25 @@ public class Game extends Activity implements Callback, AnimationListener {
 	
 	private void handleStoriesMSG(Bundle data) {
 		hideProgressDialog();
+		
+		@SuppressWarnings("unchecked")
+		ArrayList<Story> res = (ArrayList<Story>) data.getSerializable(ResponseParser.RESULT);
+		
+		Intent intent = new Intent(this, ResultStories.class);
+		intent.putExtra("stories", res);
+		startActivity(intent);
+		
+		finish();
 	}
 
 	private boolean checkStatus(int status) {
-		// TODO implemant
-		return true;
+		switch (status) {
+		case ResponseParser.MSG_OK:
+			return false;
+		default:
+			hideProgressDialog();
+			return false;
+		}
 	}
 
 	@Override

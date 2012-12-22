@@ -1,8 +1,9 @@
 package am.tir.abstractaction.data.beans;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Story {
+public class Story implements Serializable {
 
 	private List<String> answers;
 

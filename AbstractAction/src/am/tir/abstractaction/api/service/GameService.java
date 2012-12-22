@@ -2,6 +2,7 @@ package am.tir.abstractaction.api.service;
 
 import am.tir.abstractaction.api.parser.AnswerParser;
 import am.tir.abstractaction.api.parser.GetRandomAnswerParser;
+import am.tir.abstractaction.api.parser.GetStoriesParser;
 import am.tir.abstractaction.api.parser.StartGameParser;
 import am.tir.abstractaction.net.SimpleHttpClient;
 import static am.tir.abstractaction.utils.Properties.*;
@@ -47,6 +48,12 @@ public class GameService {
 	}
 	
 	public static void getStoryList(int gameId, int requestId, Context context, Handler handler) {
+		StringBuilder urlBuilder = new StringBuilder(APP_URL);
+		urlBuilder.append(URL_SUFFIX_GET_STORY_LIST);
+		urlBuilder.append(URL_PARAM_GAME_ID).append(gameId);
 		
+		GetStoriesParser storiesParser = new GetStoriesParser(requestId, handler);
+		SimpleHttpClient httpClient = new SimpleHttpClient(urlBuilder.toString(), storiesParser, context);
+		httpClient.execute();
 	}
 }

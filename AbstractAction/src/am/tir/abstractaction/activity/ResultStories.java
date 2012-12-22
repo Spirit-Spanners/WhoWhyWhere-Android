@@ -3,6 +3,7 @@
  */
 package am.tir.abstractaction.activity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import am.tir.abstractaction.R;
@@ -10,6 +11,7 @@ import am.tir.abstractaction.data.beans.Story;
 import android.app.Activity;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 /**
@@ -18,7 +20,7 @@ import android.widget.TextView;
  */
 public class ResultStories extends Activity {
 
-	private List<Story> stories;
+	private ArrayList<Story> stories;
 	private int storiesCount;
 	private int currentIndex;
 	private TextView storyText;
@@ -29,18 +31,19 @@ public class ResultStories extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.result_stories);
 
-		stories = (List<Story>) getIntent().getSerializableExtra("stories");
+		stories = (ArrayList<Story>) getIntent()
+				.getSerializableExtra("stories");
 		storiesCount = stories.size();
 		storyText = (TextView) findViewById(R.id.story_text);
 	}
 
-	public void onNextPressed() {
+	public void onNextPressed(View view) {
 		currentIndex = currentIndex == storiesCount ? 0 : ++currentIndex;
 		storyText.setText(generateStoryText(stories.get(currentIndex)));
-		playPaperSound();
+		// playPaperSound();
 	}
 
-	public void onPreviousPressed() {
+	public void onPreviousPressed(View view) {
 		currentIndex = currentIndex == 0 ? storiesCount : --currentIndex;
 		storyText.setText(generateStoryText(stories.get(currentIndex)));
 	}
@@ -48,8 +51,7 @@ public class ResultStories extends Activity {
 	private String generateStoryText(Story story) {
 		List<String> answers = story.getAnswers();
 
-		String result = String.format(
-				getResources().getString(R.string.story_template),
+		String result = getResources().getString(R.string.story_template,
 				answers.get(0), answers.get(1), answers.get(2), answers.get(3),
 				answers.get(4), answers.get(5));
 
