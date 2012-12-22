@@ -3,6 +3,7 @@ package am.tir.abstractaction.activity;
 import java.util.List;
 
 import am.tir.abstractaction.R;
+import am.tir.abstractaction.R.anim;
 import am.tir.abstractaction.api.parser.ResponseParser;
 import am.tir.abstractaction.api.service.GameService;
 import am.tir.abstractaction.utils.Helper;
@@ -11,6 +12,9 @@ import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,25 +22,29 @@ import android.widget.Toast;
 import android.app.Activity;
 import android.app.ProgressDialog;
 
-public class Game extends Activity implements Callback {
+public class Game extends Activity implements Callback, AnimationListener {
 
 	private static final int ID_REQUEST_START_GAME = 1;
 	private static final int ID_REQUEST_GET_ANSWERS_LIST = 2;
 	private static final int ID_REQUEST_ANSWER = 3;
+	private static final int ID_REQUEST_GET_RANDOM_ANSWER = 4;
 
 	private Handler handler = new Handler(this);
 
 	private ProgressDialog progressDialog;
 	private EditText answerEditText;
 	private TextView questionTextView;
+	private View paperLayout;
 
 	private int gameId;
 	private int currentQuestionId = 1;
 
 	private String[] questions;
-	private String[] questionHints; // for answerEditText hints
+	private String[] questionHints;
 	private List<String> answers;
 
+	private boolean showPaper;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -47,6 +55,7 @@ public class Game extends Activity implements Callback {
 		
 		answerEditText = (EditText) findViewById(R.id.answer);
 		questionTextView = (TextView) findViewById(R.id.question);
+		paperLayout = findViewById(R.id.paper_layout);
 		answerEditText.setHint(questionHints[currentQuestionId - 1]);
 		questionTextView.setText(questions[currentQuestionId - 1]);
 		
@@ -75,7 +84,8 @@ public class Game extends Activity implements Callback {
 	}
 
 	public void onSelectRandomAnswrClick(View view) {
-
+		showProgressDialog();
+		GameService.getRandomAnswer(currentQuestionId, ID_REQUEST_GET_RANDOM_ANSWER, this, handler);
 	}
 
 	private void showProgressDialog() {
@@ -108,6 +118,9 @@ public class Game extends Activity implements Callback {
 			case ID_REQUEST_ANSWER:
 				handleAnswerMSG(data);
 				break;
+			case ID_REQUEST_GET_RANDOM_ANSWER:
+				handleGetRandomAnswer(data);
+				break;
 			default:
 				break;
 			}
@@ -130,23 +143,49 @@ public class Game extends Activity implements Callback {
 				if (currentQuestionId == 5) {
 					Button button = (Button) findViewById(R.id.submit_answer);
 					button.setText(R.string.button_finish);
-				}
-				
-				currentQuestionId++;				
-				questionTextView.setText(questions[currentQuestionId - 1]);
-				answerEditText.setText("");
-				answerEditText.setHint(questionHints[currentQuestionId - 1]);
+				}				
+				currentQuestionId++;
+				showNext();
 			}
 		}
 	}
 	
+	private void showNext() {
+		Animation animation = AnimationUtils.loadAnimation(this, R.anim.paper_hide);
+		animation.setAnimationListener(this);
+		paperLayout.startAnimation(animation);
+	}
+	
+	private void handleGetRandomAnswer(Bundle data) {
+		hideProgressDialog();
+		String answer = data.getString(ResponseParser.RESULT);
+		answerEditText.setText(answer); 
+	}
+	
 	private void handleStoriesMSG(Bundle data) {
 		hideProgressDialog();
-		
 	}
 
 	private boolean checkStatus(int status) {
 		// TODO implemant
 		return true;
+	}
+
+	@Override
+	public void onAnimationEnd(Animation animation) {
+		questionTextView.setText(questions[currentQuestionId - 1]);
+		answerEditText.setText("");
+		answerEditText.setHint(questionHints[currentQuestionId - 1]);
+		
+		Animation anima = AnimationUtils.loadAnimation(this, R.anim.paper_show);
+		paperLayout.startAnimation(anima);
+	}
+
+	@Override
+	public void onAnimationRepeat(Animation animation) {
+	}
+
+	@Override
+	public void onAnimationStart(Animation animation) {
 	}
 }

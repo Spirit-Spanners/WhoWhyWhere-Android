@@ -24,6 +24,8 @@ public class SimpleHttpClient implements Runnable {
         this.requestURL = requestURL;
         this.responseParser = responseParser;
         this.context = context;
+        
+        System.out.println(requestURL);
     }
 
     public void execute() {

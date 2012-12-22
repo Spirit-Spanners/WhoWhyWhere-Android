@@ -15,7 +15,6 @@
             android:id="@+id/tool_tip_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tool tip title"
             android:textAppearance="@android:style/TextAppearance.Medium"
             android:textColor="#000000" />
 
@@ -23,7 +22,6 @@
             android:id="@+id/tool_tip_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tool tip desc"
             android:textAppearance="@android:style/TextAppearance.Small"
             android:textColor="#000000" />
 
@@ -36,21 +34,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:text="prev" />
+                android:layout_centerVertical="true"/>
 
             <Button
                 android:id="@+id/tool_tip_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:text="next" />
+                android:layout_centerVertical="true" />
         </RelativeLayout>
         
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/paper_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
@@ -84,6 +81,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="onSelectRandomAnswrClick"
                 android:text="@string/button_select_random_answer"/>
             
         </LinearLayout>
