@@ -10,4 +10,6 @@
     
     <string name="story_template">%1$s with %2$s %3$s %4$s, %5$s saw and said %6$s</string>
 
+    <string name="progress_dialog_message">Loading...</string>
+    
 </resources>

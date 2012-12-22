@@ -1,5 +1,6 @@
 package am.tir.abstractaction.api.parser;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
@@ -22,6 +23,12 @@ public abstract class ResponseParser {
     public void sendErrorMessage(int conde) {
         Message msg = Message.obtain(handler, conde);
         handler.sendMessage(msg);
+    }
+    
+    public void sendResult(Bundle data) {
+    	Message message = Message.obtain(handler, MSG_OK);
+    	message.setData(data);
+    	handler.sendMessage(message);
     }
 
     public abstract void processData(byte[] data);
