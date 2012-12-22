@@ -1,9 +1,8 @@
-package tk.tircs.abstractaction.activity;
+package am.tir.abstractaction.activity;
 
-import tk.tircs.abstractaction.R;
+import am.tir.abstractaction.R;
 import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
 
 public class Main extends Activity {
 
