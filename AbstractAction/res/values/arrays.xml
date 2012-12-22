@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="questions">
+        <item>Who?</item>
+        <item>With whom?</item>
+        <item>What were they doing?</item>
+        <item>Where?</item>
+        <item>Who saw?</item>
+        <item>What said?</item>
+    </string-array>
+    
+    <string-array name="question_hints">
+        <item>e.g. Davit</item>
+        <item>e.g. Snowwhite</item>
+        <item>e.g. were playing</item>
+        <item>e.g. on snow</item>
+        <item>e.g. Santa</item>
+        <item>e.g. WTF</item>
+    </string-array>
+    
+</resources>
