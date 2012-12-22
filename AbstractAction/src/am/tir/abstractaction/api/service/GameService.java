@@ -7,19 +7,19 @@ public class GameService {
 
 	private GameService() {}
 	
-	public static void startGame(Context context, Handler handler) {
+	public static void startGame(int requestId, Context context, Handler handler) {
 		
 	}
 	
-	public static void answer(long gameId, int questionId, String answer, Context context, Handler handler) {
+	public static void answer(long gameId, int questionId, String answer, int requestId, Context context, Handler handler) {
 		
 	}
 	
-	public static void getAnswerList(int questionId, Context context, Handler handler) {
+	public static void getAnswerList(int questionId, int requestId, Context context, Handler handler) {
 		
 	}
 	
-	public static void getRandomAnswer(int questionId, Context context, Handler handler) {
+	public static void getRandomAnswer(int questionId, int requestId, Context context, Handler handler) {
 		
 	}
 }

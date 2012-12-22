@@ -8,4 +8,6 @@
     <string name="button_select_random_answer">Random answer</string>
     <string name="button_submit_answer">Submit answer</string>
 
+    <string name="progress_dialog_message">Loading...</string>
+    
 </resources>
