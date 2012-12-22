@@ -13,7 +13,7 @@ public class Helper {
 	}
 	
 	public static Typeface getHoboTypeface() {
-		if (hobo == null) {
+		if (hobo == null) { 
 			//hobo = Typeface.createFromAsset(mgr, path)
 		}
 		return hobo;
