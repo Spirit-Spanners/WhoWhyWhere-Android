@@ -10,4 +10,24 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true" />
 
+    <Button
+        android:id="@+id/button_previous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="55dp"
+        android:layout_marginLeft="33dp"
+        android:onClick="onPreviousPressed" />
+
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button_previous"
+        android:layout_alignBottom="@+id/button_previous"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="32dp"
+        android:onClick="onNextPressed" />
+
 </RelativeLayout>

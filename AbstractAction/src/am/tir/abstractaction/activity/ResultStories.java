@@ -19,8 +19,9 @@ import android.widget.TextView;
 public class ResultStories extends Activity {
 
 	private List<Story> stories;
+	private int storiesCount;
 	private int currentIndex;
-	TextView storyText;
+	private TextView storyText;
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -29,17 +30,18 @@ public class ResultStories extends Activity {
 		setContentView(R.layout.result_stories);
 
 		stories = (List<Story>) getIntent().getSerializableExtra("stories");
+		storiesCount = stories.size();
 		storyText = (TextView) findViewById(R.id.story_text);
 	}
 
 	public void onNextPressed() {
-		currentIndex = currentIndex == 5 ? 0 : ++currentIndex;
+		currentIndex = currentIndex == storiesCount ? 0 : ++currentIndex;
 		storyText.setText(generateStoryText(stories.get(currentIndex)));
 		playPaperSound();
 	}
 
 	public void onPreviousPressed() {
-		currentIndex = currentIndex == 0 ? 5 : --currentIndex;
+		currentIndex = currentIndex == 0 ? storiesCount : --currentIndex;
 		storyText.setText(generateStoryText(stories.get(currentIndex)));
 	}
 
