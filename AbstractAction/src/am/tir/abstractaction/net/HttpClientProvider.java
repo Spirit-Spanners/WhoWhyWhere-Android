@@ -11,8 +11,8 @@ public class HttpClientProvider {
     private HttpClientProvider() {
     }
 
-    private static final int CONNECTION_TIMEOUT = 15000;
-    private static final int SO_TIMEOUT = 10000;
+    private static final int CONNECTION_TIMEOUT = 10000;
+    private static final int SO_TIMEOUT = 5000;
 
     private static HttpClient httpClient;
 

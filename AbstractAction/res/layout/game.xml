@@ -59,14 +59,12 @@
         <TextView
             android:id="@+id/question"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Some question" />
+            android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Answer"
             android:inputType="text"
             android:singleLine="true" />
 
@@ -94,6 +92,7 @@
             android:id="@+id/submit_answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onSubmitClick"
             android:text="@string/button_submit_answer"/>
         
     </LinearLayout>
