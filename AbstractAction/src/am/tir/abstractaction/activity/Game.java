@@ -182,7 +182,7 @@ public class Game extends Activity implements Callback, AnimationListener {
 	private boolean checkStatus(int status) {
 		switch (status) {
 		case ResponseParser.MSG_OK:
-			return false;
+			return true;
 		default:
 			hideProgressDialog();
 			return false;
