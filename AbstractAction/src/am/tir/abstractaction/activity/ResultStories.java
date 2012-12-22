@@ -22,11 +22,13 @@ public class ResultStories extends Activity {
 	private int currentIndex;
 	TextView storyText;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.result_stories);
 
+		stories = (List<Story>) getIntent().getSerializableExtra("stories");
 		storyText = (TextView) findViewById(R.id.story_text);
 	}
 
