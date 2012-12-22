@@ -15,9 +15,11 @@ public abstract class ResponseParser {
     public static final String RESULT = "result";
 
     protected Handler handler;
+    private int requestId;
 
-    public ResponseParser(Handler handler) {
+    public ResponseParser(int requestId, Handler handler) {
         this.handler = handler;
+        this.requestId = requestId;
     }
 
     public void sendErrorMessage(int conde) {
@@ -28,6 +30,7 @@ public abstract class ResponseParser {
     public void sendResult(Bundle data) {
     	Message message = Message.obtain(handler, MSG_OK);
     	message.setData(data);
+    	message.arg1 = requestId;
     	handler.sendMessage(message);
     }
 

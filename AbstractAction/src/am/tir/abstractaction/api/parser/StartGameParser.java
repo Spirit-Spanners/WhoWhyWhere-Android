@@ -8,8 +8,8 @@ import android.os.Handler;
 
 public class StartGameParser extends ResponseParser {
 
-	public StartGameParser(Handler handler) {
-		super(handler);
+	public StartGameParser(int requestId, Handler handler) {
+		super(requestId, handler);
 	}
 
 	@Override
