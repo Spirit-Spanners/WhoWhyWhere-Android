@@ -10,6 +10,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
-        android:src="@integer/games_logo" />
+        android:src="@integer/ss_logo" />
 
 </LinearLayout>

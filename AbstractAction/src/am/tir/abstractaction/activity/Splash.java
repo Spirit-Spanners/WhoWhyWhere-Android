@@ -27,7 +27,7 @@ public class Splash extends Activity {
 		if (savedInstanceState != null) {
 			ms = savedInstanceState.getLong("ms");
 			if (ms < 1510) {
-				logo.setImageResource(R.integer.ss_logo);
+				logo.setImageResource(R.integer.game_logo);
 			}
 		} else {
 			ms = 3000;
@@ -44,7 +44,7 @@ public class Splash extends Activity {
 			public void onTick(long millisUntilFinished) {
 				ms = millisUntilFinished;
 				if (ms < 1510 && ms > 1390) {
-					logo.setImageResource(R.integer.ss_logo);
+					logo.setImageResource(R.integer.game_logo);
 				}
 			}
 

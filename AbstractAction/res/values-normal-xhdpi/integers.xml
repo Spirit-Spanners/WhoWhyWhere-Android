@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="games_logo">@drawable/tir_games_logo_512</integer>
+    <integer name="game_logo">@drawable/aa_logo_512</integer>
     <integer name="ss_logo">@drawable/ss_logo_512</integer>
 </resources>
