@@ -8,7 +8,7 @@
     <string name="button_select_random_answer">Random</string>
     <string name="button_submit_answer">Submit answer</string>
     <string name="button_finish">Finish</string>
-    <string name="story_template">%1$s with %2$s were %3$s %4$s, %5$s saw and said %6$s</string>
+    <string name="story_template">%1$s with %2$s were %3$s %4$s, %5$s saw them and said %6$s</string>
     <string name="progress_dialog_message">Loading...</string>
     <string name="info_tip_title">Info Tip</string>
 

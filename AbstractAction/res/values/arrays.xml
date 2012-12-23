@@ -7,7 +7,7 @@
         <item>What were they doing?</item>
         <item>Where?</item>
         <item>Who saw?</item>
-        <item>What said?</item>
+        <item>What did they say?</item>
     </string-array>
     <string-array name="question_hints">
         <item>e.g. Davit</item>
@@ -25,11 +25,11 @@
         <item>Cleopatra and Jim Carrey were doing yoga and singing cha-cha-cha in the gay club Vardanik saw and said Do you have allready installed Windows 8?</item>
     </string-array>
     <string-array name="tips">
-        <item>It\'s an old armenian game, which is playing with pens and papers.</item>
-        <item>Try to be creativ and have a fun</item>
-        <item>Share fun stories with your friends</item>
-        <item>You can find various and interesting stories, in "Random Stories" section.</item>
-        <item>Try multiplayer version to have more fun with your friends!</item>
+        <item>It\'s an old armenian game that uses pens and papers.</item>
+        <item>Try to be creative and have fun</item>
+        <item>Share funny stories with your friends</item>
+        <item>You can find some various and interesting stuff in "Random Stories" section.</item>
+        <item>Try the multiplayer version to have more fun with your friends!</item>
     </string-array>
 
 </resources>
