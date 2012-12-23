@@ -1,33 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@drawable/play_bg"
+    android:gravity="center_horizontal" >
 
-    <TextView
-        android:id="@+id/story_text"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/result_area"
+        android:orientation="vertical"
+        android:padding="15dp" >
 
-    <Button
-        android:id="@+id/button_previous"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="55dp"
-        android:layout_marginLeft="33dp"
-        android:onClick="onPreviousPressed" />
+        <TextView
+            android:id="@+id/story_text"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:textSize="34sp" />
 
-    <Button
-        android:id="@+id/button_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button_previous"
-        android:layout_alignBottom="@+id/button_previous"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="32dp"
-        android:onClick="onNextPressed" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
 
-</RelativeLayout>
+            <Button
+                android:id="@+id/tool_tip_prev"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/button_left_arrow"
+                android:onClick="onPreviousPressed" />
+
+            <Button
+                android:id="@+id/tool_tip_next"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/button_right_arrow"
+                android:onClick="onNextPressed" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

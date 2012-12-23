@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <integer name="main_bg">@drawable/home_bg</integer>
     <integer name="game_logo">@drawable/aa_logo_512</integer>
     <integer name="ss_logo">@drawable/ss_logo_512</integer>
+
 </resources>

@@ -2,14 +2,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@integer/main_bg"
+    android:paddingBottom="80dp"
     tools:context=".Main" >
 
-    <Button
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:onClick="onEnterClick"
-        android:text="@string/button_enter" />
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/button_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bigger_bg"
+            android:onClick="onEnterClick"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:text="@string/button_enter"
+            android:textSize="28sp" />
+
+        <Button
+            android:id="@+id/button_random_story"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bigger_bg"
+            android:onClick="onRandomStoryClick"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:text="@string/button_random_story"
+            android:textSize="28sp" />
+    </LinearLayout>
 
 </RelativeLayout>

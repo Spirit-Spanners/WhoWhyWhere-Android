@@ -2,28 +2,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/play_bg"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".Game" >
 
     <LinearLayout
         android:id="@+id/tool_tip_view"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="175dp"
+        android:background="@drawable/infotip"
+        android:orientation="vertical"
+        android:padding="10dp" >
 
         <TextView
             android:id="@+id/tool_tip_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@android:style/TextAppearance.Medium"
-            android:textColor="#000000" />
+            android:gravity="center_horizontal"
+            android:text="@string/info_tip_title"
+            android:textColor="#000000"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/tool_tip_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@android:style/TextAppearance.Small"
-            android:textColor="#000000" />
+            android:gravity="center_horizontal"
+            android:textColor="#000000"
+            android:textSize="20sp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -31,39 +41,65 @@
 
             <Button
                 android:id="@+id/tool_tip_prev"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true"
+                android:background="@drawable/button_left_arrow"
+                android:onClick="onPreviousPressed" />
 
             <Button
                 android:id="@+id/tool_tip_next"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true" />
+                android:layout_centerVertical="true"
+                android:background="@drawable/button_right_arrow"
+                android:onClick="onNextPressed" />
         </RelativeLayout>
-        
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/paper_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:orientation="vertical" >
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/play_area"
+        android:orientation="vertical"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:paddingTop="35dp" >
 
         <TextView
             android:id="@+id/question"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="28sp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/play_separator" />
 
         <EditText
             android:id="@+id/answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="#00000000"
             android:inputType="text"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:textSize="32sp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/play_separator" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -74,25 +110,36 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/button_select_answer"/>
-            
+                android:background="@drawable/button_big_bg"
+                android:onClick="onSelectAnswerClick"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/button_select_answer"
+                android:textSize="22sp" />
+
             <Button
                 android:id="@+id/select_random_answer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/button_big_bg"
                 android:onClick="onSelectRandomAnswrClick"
-                android:text="@string/button_select_random_answer"/>
-            
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/button_select_random_answer"
+                android:textSize="22sp" />
         </LinearLayout>
-        
-        <Button 
+
+        <Button
             android:id="@+id/submit_answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/button_bigger_bg"
             android:onClick="onSubmitClick"
-            android:text="@string/button_submit_answer"/>
-        
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:text="@string/button_submit_answer"
+            android:textSize="28sp" />
     </LinearLayout>
 
 </LinearLayout>

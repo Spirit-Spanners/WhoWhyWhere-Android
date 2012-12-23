@@ -20,7 +20,7 @@ public class GetRandomAnswerParser extends ResponseParser {
 			String answer = resultObject.getString("answer");
 			
 			Bundle bundle = new Bundle();
-			bundle.putString(RESULT, answer);
+			bundle.putString(RESULT, answer.trim());
 			
 			sendResult(bundle);
 		} catch (JSONException e) {
