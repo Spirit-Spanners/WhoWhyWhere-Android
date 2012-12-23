@@ -36,14 +36,14 @@ public class RandomStories extends Activity {
 	public void onNextPressed(View view) {
 		currentIndex = currentIndex == storiesCount - 1 ? 0 : ++currentIndex;
 		storyText
-				.setText(getResources().getStringArray(R.array.tips)[currentIndex]);
+				.setText(getResources().getStringArray(R.array.random_stories)[currentIndex]);
 		playPaperSound();
 	}
 
 	public void onPreviousPressed(View view) {
 		currentIndex = currentIndex == 0 ? storiesCount - 1 : --currentIndex;
 		storyText
-				.setText(getResources().getStringArray(R.array.tips)[currentIndex]);
+				.setText(getResources().getStringArray(R.array.random_stories)[currentIndex]);
 		playPaperSound();
 	}
 
